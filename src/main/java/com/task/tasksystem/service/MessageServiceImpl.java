@@ -5,6 +5,8 @@ import com.task.tasksystem.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MessageServiceImpl implements MessageService{
 
@@ -14,5 +16,10 @@ public class MessageServiceImpl implements MessageService{
     @Override
     public Message saveMessage(Message message) {
         return messageRepository.save(message);
+    }
+
+    @Override
+    public List<Message> getAllMessages() {
+        return messageRepository.findAll();
     }
 }

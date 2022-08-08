@@ -3,10 +3,9 @@ package com.task.tasksystem.controller;
 import com.task.tasksystem.model.Message;
 import com.task.tasksystem.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/message")
@@ -19,5 +18,10 @@ public class MessageController {
     public String add(@RequestBody Message message){
         messageService.saveMessage(message);
         return "message added";
+    }
+
+    @GetMapping("/getAll")
+    public List<Message> getAllMessages(){
+        return messageService.getAllMessages();
     }
 }

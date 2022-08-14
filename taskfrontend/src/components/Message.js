@@ -34,7 +34,7 @@ export default function Message() {
     }
 
     useEffect(()=>{
-    fetch('https://localhost:8080/message/getAll')
+    fetch('http://localhost:8080/message/getAll')
         .then(res=> {
             console.log(res)
             return res.json()})
